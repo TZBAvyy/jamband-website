@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+    THIS IS THE BASE TEMPLATE FOR ALL HTML TEMPLATES IN THIS APPLICATION
+    ALL TEMPLATES INHERITS (EXTENDS) FROM THIS
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="description" content="{{description}}">
+    <meta name="keywords" content="{{keywords}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="author" href="https://github.com/TZBAvyy" />
+    <link rel="canonical" href="https://universejamband.pythonanywhere.com{% block canonical_url %}{% endblock %}" /> -->
+    
+    <title>Universe</title>
+
+    <link rel="stylesheet" href="base.css">
+
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div class="main-container">
+        {% block navbar %}{% endblock %}
+        {% block banner %}{% endblock %}
+        {% block content %}{% endblock %}
+        {% block footer %}{% endblock %}
+    </div>
+</body>
+</html>
