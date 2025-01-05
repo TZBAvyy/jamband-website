@@ -17,15 +17,17 @@
     <title>{% block title %}{% endblock title %}</title>
 
     <link rel="stylesheet" href={% static "base/base.css" %}>
+    
+    <link rel="shortcut icon" type="image/png" href="{% static 'base/favicon.ico' %}"/>
 
     {% block head %}{% endblock %}
 </head>
 <body>
+    {% block header %}{% include "base/header.html" %}{% endblock %}
     <div class="main-container">
-        {% block header %}{% endblock %}
         {% block banner %}{% endblock %}
         {% block content %}{% endblock %}
-        {% block footer %}{% endblock %}
     </div>
+    {% block footer %}{% include "base/footer.html" %}{% endblock %}
 </body>
 </html>
