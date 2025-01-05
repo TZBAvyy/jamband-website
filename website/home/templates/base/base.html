@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <!--
     THIS IS THE BASE TEMPLATE FOR ALL HTML TEMPLATES IN THIS APPLICATION
@@ -13,15 +14,15 @@
     <link rel="author" href="https://github.com/TZBAvyy" />
     <link rel="canonical" href="https://universejamband.pythonanywhere.com{% block canonical_url %}{% endblock %}" /> -->
     
-    <title>Universe</title>
+    <title>{% block title %}{% endblock title %}</title>
 
-    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href={% static "base/base.css" %}>
 
     {% block head %}{% endblock %}
 </head>
 <body>
     <div class="main-container">
-        {% block navbar %}{% endblock %}
+        {% block header %}{% endblock %}
         {% block banner %}{% endblock %}
         {% block content %}{% endblock %}
         {% block footer %}{% endblock %}
