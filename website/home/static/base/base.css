@@ -56,9 +56,11 @@ p {
 
 .main-container {
     flex: 1;
+    padding: 0 var(--padding-gap-spacing);
 }
 
 .navbar {
+    background: var(--white);
     position: fixed;
     top: 0;
     right: 0;
