@@ -14,6 +14,8 @@
     --universe-blue-dark: #0b316a;
     --universe-yellow: #e6c842;
     --universe-yellow-outline: #a87c1f;
+    --fc-border-color: var(--universe-blue);
+    --fc-button-bg-color: var(--universe-blue-dark);
 
     --max-width: 1440px;
     --header-height: 60px;
@@ -34,6 +36,7 @@
 * {
     box-sizing: border-box;
     scrollbar-color: var(--table-disabled) var(--background);
+    font-family: "Inter";
 }
 
 body {
@@ -51,7 +54,7 @@ a {
 
 p {
     margin: 0;
-    font-family: "Inter", sans-serif;
+    font-family: "Inter";
 }
 
 .main-container {
