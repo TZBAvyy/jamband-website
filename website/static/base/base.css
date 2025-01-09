@@ -31,6 +31,7 @@
     --para-gap-mobile: 18px;
     --top-padding: calc(30px + var(--header-height));
     --top-padding-mobile: calc(10px + var(--header-height));
+    --btn-font: normal normal 400 16px "Inter";
 }
 
 * {
