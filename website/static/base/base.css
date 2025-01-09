@@ -119,3 +119,13 @@ footer {
     color: var(--white);
     font: normal normal 700 16px "Inter";   
 }
+
+.btn {
+    color: var(--white);
+    background-color: var(--universe-blue-dark);
+    border: 1px solid var(--outline);
+    border-radius: 4px;
+    font: var(--btn-font);
+    line-height: 24px;
+    padding: 6px;
+}

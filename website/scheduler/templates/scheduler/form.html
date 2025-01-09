@@ -1,10 +1,10 @@
 {% extends "base/base.html" %}
 {% load static %}
 
-{% block title %}Practice Scheduler{% endblock title %}
+{% block title %}Add Practice{% endblock title %}
 
 {% block head %}
-    <link rel="stylesheet" href={% static "scheduler/list.css" %}>
+    <link rel="stylesheet" href={% static "scheduler/form.css" %}>
 
     {% comment %} FullCalendar 6.1.15 API {% endcomment %}
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
@@ -51,11 +51,11 @@
 <div class="content">
     <div class="section">
 
-        <div class="btnDiv">
-            <a class="btn" href={% url 'scheduler:practice-create' %}>
-                Add new Practice
-            </a>
-            <p>(Only for members; Requires login)</p>
+        <div class="">
+            <form method="post">{% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Add" class="btn">
+            </form>
         </div>
 
         <div id="calendar"></div>
