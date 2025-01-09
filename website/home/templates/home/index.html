@@ -12,7 +12,24 @@
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth'
+                initialView: 'dayGridMonth',
+                events: [
+                {% for event in event_list %}
+                    {   
+                        id: '{{event.id}}',
+                        title: '{{event.name}}',
+                        start: '{{event.date|date:"Y-m-d"}}T{{event.time|time:"H:i:s"}}',
+                    },
+                {% endfor %}
+                {% for practice in practice_list %}
+                    {   
+                        id: '{{practice.id}}',
+                        title: 'Practice: {{practice.band}}',
+                        start: '{{practice.date|date:"Y-m-d"}}T{{practice.startTime|time:"H:i:s"}}',
+                        end: '{{practice.date|date:"Y-m-d"}}T{{practice.endTime|time:"H:i:s"}}',
+                    },
+                {% endfor %}
+                ],
             });
             calendar.render();
         });
