@@ -2,11 +2,11 @@
 <nav class="navbar">
     <div class="nav-item">
         <img src={% static "base/logo.png" %} alt="" class="nav-logo">
-        <a href="" class="nav-text">Universe</a>
+        <a href={% url 'home' %} class="nav-text">Universe</a>
     </div>
 
     <div class="nav-item">
-        <a href="" class="nav-text">Schedule</a>
+        <a href={% url 'scheduler:practice-all' %} class="nav-text">Schedule</a>
         <a href="" class="nav-text">Login</a>
     </div>
 </nav>

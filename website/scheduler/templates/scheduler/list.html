@@ -1,10 +1,10 @@
 {% extends "base/base.html" %}
 {% load static %}
 
-{% block title %}Home{% endblock title %}
+{% block title %}Practice Scheduler{% endblock title %}
 
 {% block head %}
-    <link rel="stylesheet" href={% static "home/index.css" %}>
+    <link rel="stylesheet" href={% static "scheduler/list.css" %}>
 
     {% comment %} FullCalendar 6.1.15 API {% endcomment %}
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
@@ -12,16 +12,19 @@
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
+                initialView: 'timeGridWeek',
+                slotMinTime: '07:00:00',
+                headerToolbar: {
+                    start: 'listWeek timeGridWeek', // will normally be on the left. if RTL, will be on the right
+                    center: 'title',
+                    end: 'today prev,next' // will normally be on the right. if RTL, will be on the left
+                },
+                buttonText: {
+                    timeGridWeek: 'View in Calendar Format',
+                    listWeek: 'List Practices',
+                    today: 'Go to Current Week'
+                },
                 events: [
-                {% for event in event_list %}
-                    {   
-                        id: '{{event.id}}',
-                        title: '{{event.name}}',
-                        start: '{{event.date|date:"Y-m-d"}}T{{event.time|time:"H:i:s"}}',
-                        backgroundColor: '#0b316a'
-                    },
-                {% endfor %}
                 {% for practice in practice_list %}
                     {   
                         id: '{{practice.id}}',
@@ -40,7 +43,7 @@
 
 {% block banner %}
 <div>
-    <h1>Hall 1 Jamband</h1>
+    <h1>Practice Schedule</h1>
 </div>
 {% endblock %}
 
