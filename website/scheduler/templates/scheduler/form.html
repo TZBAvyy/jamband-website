@@ -2,7 +2,13 @@
 {% load static %}
 {% load widget_tweaks %}
 
-{% block title %}Add Practice{% endblock title %}
+{% block title %}
+{% if object %}
+Update Practice
+{% else %}
+Add Practice
+{% endif %}
+{% endblock title %}
 
 {% block head %}
     <link rel="stylesheet" href={% static "scheduler/form.css" %}>

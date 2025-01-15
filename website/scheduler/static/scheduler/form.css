@@ -16,10 +16,6 @@ form {
     padding: 0;
 }
 
-.btn-delete {
-    background-color: var(--warning);
-}
-
 input[type="date"] {
     position: relative;
 }
@@ -61,4 +57,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .form-buttons {
     display: flex;
     gap: 10px;
+}
+
+.btn-delete {
+    background-color: var(--warning);
 }
