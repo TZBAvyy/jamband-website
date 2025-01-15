@@ -16,28 +16,74 @@
     <div class="section">
         <form method="post" action={% url 'scheduler:practice-create' %}> {% csrf_token %}
 
-            <h1>Add new Practice to Schedule</h1>
+            <h1>
+            {% if object %}
+            Update Practice for <i>{{object.band}}</i>
+            {% else %}
+            Add new Practice to Schedule
+            {% endif %}
+            </h1>
 
             {% for hidden in form.hidden_fields %}
                 {{ hidden }}
             {% endfor %}
 
-            {% for field in form.visible_fields %}
+            {% if not object %}
             <div class="form-group">
-                
-                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}:</label>
-                {{ field|add_class:'form-field' }}
+                {% comment %} BAND FIELD {% endcomment %}
+                <label for="{{ form.band.id_for_label }}" class="form-label">{{ form.band.label }}:</label>
+                {{ form.band|add_class:'form-field' }}
 
-                {% for error in field.errors %}
+                {% for error in form.band.errors %}
                     <span class="help-block">{{ error }}</span>
                 {% endfor %}
 
             </div>
-            {% endfor %}
+            {% endif %}
+
+            <div class="form-group">
+                {% comment %} DATE FIELD {% endcomment %}
+                <label for="{{ form.date.id_for_label }}" class="form-label">{{ form.date.label }}:</label>
+                {{ form.date|add_class:'form-field' }}
+
+                {% for error in form.date.errors %}
+                    <span class="help-block">{{ error }}</span>
+                {% endfor %}
+
+            </div>
+
+            <div class="form-group">
+                {% comment %} STARTTIME FIELD {% endcomment %}
+                <label for="{{ form.startTime.id_for_label }}" class="form-label">{{ form.startTime.label }}:</label>
+                {{ form.startTime|add_class:'form-field' }}
+
+                {% for error in form.startTime.errors %}
+                    <span class="help-block">{{ error }}</span>
+                {% endfor %}
+
+            </div>
+
+            <div class="form-group">
+                {% comment %} ENDTIME FIELD {% endcomment %}
+                <label for="{{ form.endTime.id_for_label }}" class="form-label">{{ form.endTime.label }}:</label>
+                {{ form.endTime|add_class:'form-field' }}
+
+                {% for error in form.endTime.errors %}
+                    <span class="help-block">{{ error }}</span>
+                {% endfor %}
+
+            </div>
 
             <div class="form-buttons">
-                <input type="submit" value="Add Practice" class="btn">
+                <input 
+                    type="submit" 
+                    value={% if object %}"Update"{% else %}"Add Practice"{% endif %}
+                    class="btn"
+                >
                 <a href={% url 'scheduler:practice-all' %} class="btn">Cancel</a>
+                {% if object %}
+                <a href={% url 'scheduler:practice-delete' object.id %} class="btn btn-delete">Delete</a>
+                {% endif %}
             </div>
         </form>
     </div>

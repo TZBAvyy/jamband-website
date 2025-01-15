@@ -31,7 +31,8 @@
                         title: 'Practice: {{practice.band}}',
                         start: '{{practice.date|date:"Y-m-d"}}T{{practice.startTime|time:"H:i:s"}}',
                         end: '{{practice.date|date:"Y-m-d"}}T{{practice.endTime|time:"H:i:s"}}',
-                        backgroundColor: '#a87c1f'
+                        backgroundColor: '#a87c1f',
+                        url: "{% url 'scheduler:practice-update' practice.id %}"
                     },
                 {% endfor %}
                 ],

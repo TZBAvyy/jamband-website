@@ -8,6 +8,7 @@
     --disabled: #d9d9d9;
     --on-disabled: #737373;
     --error: #e10d0d;
+    --warning: rgb(220, 53, 69);
     --table-disabled: #a3b4cc;
     --table-accent: #e5f1ff;
     --btn-background: var(--universe-blue-dark);

@@ -23,9 +23,16 @@ class PracticeCreateView(CreateView):
 
 class PracticeUpdateView(UpdateView):
     model = Practice
-    fields = "__all__"
     template_name = "scheduler/form.html"
+    form_class = PracticeForm
+    success_url = reverse_lazy('scheduler:practice-all')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["practice_list"] = Practice.objects.all() 
+        return context
 
 class PracticeDeleteView(DeleteView):
     model = Practice
-    template_name = "scheduler/delete_confirm.html"
+    template_name = "scheduler/confirm_delete.html"
+    success_url = reverse_lazy('scheduler:practice-all')

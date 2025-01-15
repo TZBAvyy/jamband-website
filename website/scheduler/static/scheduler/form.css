@@ -16,6 +16,10 @@ form {
     padding: 0;
 }
 
+.btn-delete {
+    background-color: var(--warning);
+}
+
 input[type="date"] {
     position: relative;
 }
