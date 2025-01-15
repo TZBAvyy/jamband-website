@@ -4,7 +4,6 @@ from django.urls import reverse_lazy
 from .models import Practice
 from .forms import PracticeForm
 
-
 class PracticeListView(ListView):
     model = Practice
     template_name = "scheduler/list.html"
@@ -20,7 +19,6 @@ class PracticeCreateView(CreateView):
         context["practice_list"] = Practice.objects.all() 
         return context
     
-
 class PracticeUpdateView(UpdateView):
     model = Practice
     template_name = "scheduler/form.html"

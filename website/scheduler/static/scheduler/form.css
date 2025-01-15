@@ -8,6 +8,10 @@ form {
     display: inline-block;
 }
 
+.hidden {
+    display: none;
+}
+
 .form-field {
     width: 100%;
     height: 30px;
@@ -46,13 +50,11 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     background: transparent;
 }
 
-/* .form-label {
-
+.error-block {
+    color: var(--warning);
+    font: normal 16px "Inter";
+    font-weight: 500;
 }
-
-.help-block {
-
-} */
 
 .form-buttons {
     display: flex;
