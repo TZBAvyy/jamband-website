@@ -46,14 +46,12 @@
 {% block content %}
 <div class="content">
     <div class="section">
-        <div class="middle">
-            <h1>Practice Schedule</h1>
-            <div class="btnDiv">
-                <a class="btn" href={% url 'scheduler:practice-create' %}>
-                    Add new Practice
-                </a>
-                <p>(Only for members; Requires login)</p>
-            </div>
+        <h1>Practice Schedule</h1>
+        <div class="btnDiv">
+            <a class="btn" href={% url 'scheduler:practice-create' %}>
+                Add new Practice
+            </a>
+            <p>(Only for members; Requires login)</p>
         </div>
     </div>
 

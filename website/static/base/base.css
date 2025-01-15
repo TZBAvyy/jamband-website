@@ -10,12 +10,14 @@
     --error: #e10d0d;
     --table-disabled: #a3b4cc;
     --table-accent: #e5f1ff;
+    --btn-background: var(--universe-blue-dark);
+    --btn-background-hover: rgb(26, 37, 47);
     --universe-blue: #38598e;
     --universe-blue-dark: #0b316a;
     --universe-yellow: #e6c842;
     --universe-yellow-outline: #a87c1f;
     --fc-border-color: var(--universe-blue);
-    --fc-button-bg-color: var(--universe-blue-dark);
+    --fc-button-bg-color: var(--btn-background);
 
     --max-width: 1440px;
     --header-height: 60px;
@@ -126,10 +128,15 @@ footer {
 
 .btn {
     color: var(--white);
-    background-color: var(--universe-blue-dark);
+    background-color: var(--btn-background);
     border: 1px solid var(--outline);
     border-radius: 4px;
     font: var(--btn-font);
     line-height: 24px;
     padding: 6px;
+}
+
+.btn:hover {
+    background-color: var(--btn-background-hover);
+    cursor: pointer;
 }

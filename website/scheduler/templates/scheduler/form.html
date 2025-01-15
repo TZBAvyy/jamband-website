@@ -14,27 +14,32 @@
 {% block content %}
 <div class="content">
     <div class="section">
-        <div class="middle">
-            <form method="post" action={% url 'scheduler:practice-create' %}> {% csrf_token %}
-                <h1>Add new Practice to Schedule</h1>
-                {% for hidden in form.hidden_fields %}
-                    {{ hidden }}
+        <form method="post" action={% url 'scheduler:practice-create' %}> {% csrf_token %}
+
+            <h1>Add new Practice to Schedule</h1>
+
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+
+            {% for field in form.visible_fields %}
+            <div class="form-group">
+                
+                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}:</label>
+                {{ field|add_class:'form-field' }}
+
+                {% for error in field.errors %}
+                    <span class="help-block">{{ error }}</span>
                 {% endfor %}
-                {% for field in form.visible_fields %}
-                <div class="form-group">
-                    <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}:</label>
-                    {{ field|add_class:'form-field' }}
-                    {% for error in field.errors %}
-                        <span class="help-block">{{ error }}</span>
-                    {% endfor %}
-                </div>
-                {% endfor %}
-                <div class="form-buttons">
-                    <input type="submit" value="Add" class="btn">
-                    <a href={% url 'scheduler:practice-all' %} class="btn">Cancel</a>
-                </div>
-            </form>
-        </div>
+
+            </div>
+            {% endfor %}
+
+            <div class="form-buttons">
+                <input type="submit" value="Add Practice" class="btn">
+                <a href={% url 'scheduler:practice-all' %} class="btn">Cancel</a>
+            </div>
+        </form>
     </div>
 
     <div class="section">
