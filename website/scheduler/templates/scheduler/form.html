@@ -1,65 +1,44 @@
-{% extends "base/base.html" %}
+{% extends "scheduler/list.html" %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block title %}Add Practice{% endblock title %}
 
 {% block head %}
     <link rel="stylesheet" href={% static "scheduler/form.css" %}>
-
-    {% comment %} FullCalendar 6.1.15 API {% endcomment %}
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'timeGridWeek',
-                slotMinTime: '07:00:00',
-                headerToolbar: {
-                    start: 'listWeek timeGridWeek', // will normally be on the left. if RTL, will be on the right
-                    center: 'title',
-                    end: 'today prev,next' // will normally be on the right. if RTL, will be on the left
-                },
-                buttonText: {
-                    timeGridWeek: 'View in Calendar Format',
-                    listWeek: 'List Practices',
-                    today: 'Go to Current Week'
-                },
-                events: [
-                {% for practice in practice_list %}
-                    {   
-                        id: '{{practice.id}}',
-                        title: 'Practice: {{practice.band}}',
-                        start: '{{practice.date|date:"Y-m-d"}}T{{practice.startTime|time:"H:i:s"}}',
-                        end: '{{practice.date|date:"Y-m-d"}}T{{practice.endTime|time:"H:i:s"}}',
-                        backgroundColor: '#a87c1f'
-                    },
-                {% endfor %}
-                ],
-            });
-            calendar.render();
-        });
-    </script>
+    {{ block.super }}
 {% endblock %}
 
-{% block banner %}
-<div>
-    <h1>Practice Schedule</h1>
-</div>
-{% endblock %}
+{% block banner %}{% endblock %}
 
 {% block content %}
 <div class="content">
     <div class="section">
-
-        <div class="">
-            <form method="post">{% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" value="Add" class="btn">
+        <div class="middle">
+            <form method="post" action={% url 'scheduler:practice-create' %}> {% csrf_token %}
+                <h1>Add new Practice to Schedule</h1>
+                {% for hidden in form.hidden_fields %}
+                    {{ hidden }}
+                {% endfor %}
+                {% for field in form.visible_fields %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}:</label>
+                    {{ field|add_class:'form-field' }}
+                    {% for error in field.errors %}
+                        <span class="help-block">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+                <div class="form-buttons">
+                    <input type="submit" value="Add" class="btn">
+                    <a href={% url 'scheduler:practice-all' %} class="btn">Cancel</a>
+                </div>
             </form>
         </div>
+    </div>
 
+    <div class="section">
         <div id="calendar"></div>
-
     </div>
 </div>
 {% endblock %}

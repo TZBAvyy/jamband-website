@@ -41,25 +41,24 @@
     </script>
 {% endblock %}
 
-{% block banner %}
-<div>
-    <h1>Practice Schedule</h1>
-</div>
-{% endblock %}
+{% block banner %}{% endblock %}
 
 {% block content %}
 <div class="content">
     <div class="section">
-
-        <div class="btnDiv">
-            <a class="btn" href={% url 'scheduler:practice-create' %}>
-                Add new Practice
-            </a>
-            <p>(Only for members; Requires login)</p>
+        <div class="middle">
+            <h1>Practice Schedule</h1>
+            <div class="btnDiv">
+                <a class="btn" href={% url 'scheduler:practice-create' %}>
+                    Add new Practice
+                </a>
+                <p>(Only for members; Requires login)</p>
+            </div>
         </div>
+    </div>
 
+    <div class="section">
         <div id="calendar"></div>
-
     </div>
 </div>
 {% endblock %}

@@ -58,6 +58,10 @@ p {
     font-family: "Inter";
 }
 
+h1 {
+    margin: 0;
+}
+
 .main-container {
     flex: 1;
     padding: 0 var(--padding-gap-spacing);
