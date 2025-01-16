@@ -93,8 +93,13 @@ h1 {
 }
 
 .nav-text {
+    background-color: none;
     color: var(--body);
     font: normal normal 500 26px "Inter";   
+}
+
+.nav-text:hover {
+    background-color: none;
 }
 
 .nav-logo {
