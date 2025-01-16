@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+from django.urls import reverse_lazy
 from pathlib import Path
 from decouple import config
 
@@ -105,6 +106,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+LOGIN_URL = reverse_lazy("login")
+
+LOGIN_REDIRECT_URL = reverse_lazy("home")
+
+LOGOUT_REDIRECT_URL = reverse_lazy("home")
 
 
 # Internationalization

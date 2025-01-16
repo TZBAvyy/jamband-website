@@ -70,6 +70,7 @@ h1 {
     padding: 0 var(--padding-gap-spacing);
 }
 
+/* HEADER CSS STYLING */
 .navbar {
     background: var(--white);
     position: fixed;
@@ -101,6 +102,8 @@ h1 {
     max-height: 50px;
 }
 
+
+/* FOOTER CSS STYLING */
 footer {
     min-height: var(--footer-height);
     background: var(--universe-blue);
@@ -127,6 +130,36 @@ footer {
     font: normal normal 700 16px "Inter";   
 }
 
+/* LOGIN PORTAL STYLING */
+.login-div {
+    display: flex;
+    justify-content: center;
+}
+
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 30px 30px;
+    border-radius: 4px;
+    background-color: var(--universe-blue);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5),
+                0 4px 8px 0 rgba(0, 0, 0, 0.4), 
+                0 6px 20px 0 rgba(0, 0, 0, 0.3),
+                0 10px 32px 0 rgba(0, 0, 0, 0.2),
+                0 16px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.login-title, .login-label {
+    color: var(--white);
+}
+
+.login-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* GENERAL COMPONENT STYLING */
 .btn {
     color: var(--white);
     background-color: var(--btn-background);
@@ -141,3 +174,37 @@ footer {
     background-color: var(--btn-background-hover);
     cursor: pointer;
 }
+
+.btn-delete {
+    background-color: var(--warning);
+}
+
+/* FORM STYLING */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group {
+    display: inline-block;
+}
+
+.form-field {
+    width: 100%;
+    height: 30px;
+    border-radius: 4px;
+    padding: 0;
+}
+
+.error-block {
+    color: var(--warning);
+    font: normal 16px "Inter";
+    font-weight: 500;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+}
+
