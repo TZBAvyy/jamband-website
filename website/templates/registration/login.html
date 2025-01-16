@@ -33,7 +33,7 @@
             </div>
             <div class="login-buttons">
                 <input type="submit" class="btn" value="Login" />
-                <a href={% url "home" %} class="btn">Cancel</a>
+                <button class="btn" onclick="event.preventDefault();history.back()">Cancel</button>
                 <input type="hidden" name="next" value="{{ next }}" />
             </div>
         </form>

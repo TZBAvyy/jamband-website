@@ -61,13 +61,13 @@ p {
     font-family: "Inter";
 }
 
-h1 {
+h1, h2, h3, h4 {
     margin: 0;
 }
 
 .main-container {
     flex: 1;
-    padding: 0 var(--padding-gap-spacing);
+    padding: 0 var(--padding-gap-spacing) 30px;
 }
 
 /* HEADER CSS STYLING */
@@ -200,6 +200,11 @@ form {
     height: 30px;
     border-radius: 4px;
     padding: 0;
+    border: 1px solid rgb(118, 118, 118);
+}
+
+.form-field:focus {
+    outline: none;
 }
 
 .error-block {
