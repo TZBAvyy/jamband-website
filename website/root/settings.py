@@ -131,10 +131,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATIC_ROOT = BASE_DIR / "static"
+STATIC_ROOT = "/var/www/static/" # For serving static files in production
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static"
+STATICFILES_DIRS = [ # For runserver to find static files
+    BASE_DIR / "static",
 ]
 
 # Default primary key field type
