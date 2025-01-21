@@ -20,6 +20,17 @@
     
     <link rel="shortcut icon" type="image/png" href="{% static 'base/favicon.ico' %}"/>
 
+    <script>
+        function menuClick() {
+            var dropdown = document.getElementById("dropdown-links");
+            if (dropdown.style.display === "flex") {
+              dropdown.style.display = "none";
+            } else {
+              dropdown.style.display = "flex";
+            }
+          } 
+    </script>
+
     {% block head %}{% endblock %}
 </head>
 <body>
