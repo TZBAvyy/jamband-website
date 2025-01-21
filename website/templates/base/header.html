@@ -1,26 +1,30 @@
 {% load static %}
 <nav class="navbar">
-    <div class="nav-item">
-        <img src={% static "base/logo.png" %} alt="" class="nav-logo">
-        <a href={% url 'home' %} class="nav-text">Universe</a>
+    <div class="logo-section">
+        <a href={% url 'home' %}>
+            <img src={% static "base/logo.png" %} alt="" class="nav-logo">
+        </a>
     </div>
 
-    <div class="nav-item">
-        <a href={% url 'scheduler:practice-all' %} class="nav-text">Schedule</a>
-        
-        {% if user.is_authenticated %}
-        <form method="POST" action={% url "logout" %} id="logout_form"> {% csrf_token %}
-            <a 
-                href="javascript:{}" 
-                onclick="document.getElementById('logout_form').submit(); return false;"
-                class="nav-text"
+    <div class="desktop-section">
+        {% comment %} Add new header links into the headerLinks.html file {% endcomment %}
+        {% include "base/headerLinks.html" %} 
+    </div>
+
+    <div class="mobile-section">
+        <button class="burger-btn" onclick="menuClick()">
+            <img
+                src="{% static "base/burger-menu.svg" %}"
+                width="60px"
+                height="auto"
+                alt="\/"
             >
-                Logout
-            </a>
-        </form>
-        {% else %}
-        <a href={% url "login" %} class="nav-text">Login</a>
-        {% endif %}
-        
+        </button>
+
+        <div id="dropdown-links">
+            {% comment %} Add new header links into the headerLinks.html file {% endcomment %}
+            {% include "base/headerLinks.html" %}
+        </div>
+
     </div>
 </nav>
